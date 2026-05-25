@@ -1,29 +1,13 @@
-import Card from "./Card";
-
-type CardData = {
-  id: number;
-  imagem: string;
-  titulo: string;
-  texto: string;
-  linkUrl: string;
-}
-
 type GridProps = {
-  cards: CardData[];
   cols?: number;
+  children?: React.ReactNode;
 }
 
-function Grid({ cards, cols = 4 }: GridProps) {
+function Grid({ cols = 4, children }: GridProps) {
   return (
     <>
-      <div className={`row row-cols-${cols} g-3`}>
-        {cards.map((card) => (
-            <Card imagem={card.imagem}
-              titulo={card.titulo}
-              texto={card.texto}
-              linkUrl={card.linkUrl} 
-              key={card.id} />
-        ))}
+      <div className={`row row-cols-${cols} g-3 align-items-stretch`}>
+        {children}
       </div>
     </>
   )

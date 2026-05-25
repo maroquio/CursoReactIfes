@@ -8,7 +8,7 @@ type CardProps = {
 function Card({ imagem, titulo, texto, linkUrl }: CardProps) {
     return (
         <div className="col">
-            <div className="card">
+            <div className="card h-100">
                 <img src={imagem} className="card-img-top" />
                 <div className="card-body text-center">
                     <h5 className="card-title">{titulo}</h5>

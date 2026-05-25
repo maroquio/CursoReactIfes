@@ -1,5 +1,9 @@
+import { useState } from "react";
 import BoasVindas from "./BoasVindas";
-import Grid from "./Grid";
+import BsFooter from "./BsFooter";
+import Container from "./Container";
+import GridCards from "./GridCards";
+import Navbar from "./Navbar";
 
 const cards = [
   {
@@ -88,14 +92,49 @@ const cards = [
   }
 ];
 
+const links = [
+  {
+    "href": "/",
+    "label": "Início",
+    "active": true
+  },
+  {
+    "href": "/sobre",
+    "label": "Sobre",
+    "active": false
+  },
+]
+
+type ItemCarrinho = {
+  id: number;  
+  quantidade: number;
+}
+
 function App() {
+  const [carrinho, setCarrinho] = useState<ItemCarrinho[]>([]);
+
+  function adicionarAoCarrinho(id: number) {
+    const itemExistente = carrinho.find(item => item.id === id);
+    if (itemExistente) {
+      setCarrinho(carrinho.map(item =>
+        item.id === id ? { ...item, quantidade: item.quantidade + 1 } : item
+      ));
+    } else {
+      setCarrinho([...carrinho, { id, quantidade: 1 }]);
+    }
+  }
+
   return (
     <>
-      <h1>Olá, React!</h1>
-      <hr />
-      <BoasVindas nome="Ricardo" />
-      <hr />
-      <Grid cards={cards} cols={4} />
+      <Navbar items={links} title="Loja Virtual" cartLength={carrinho.length}/>
+      <Container>
+        <h1>Olá, React!</h1>
+        <hr />
+        <BoasVindas nome="Ricardo" />
+        <hr />
+        <GridCards cols={4} cards={cards} />
+      </Container>
+      <BsFooter />
     </>
   )
 }
