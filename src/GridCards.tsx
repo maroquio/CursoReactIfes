@@ -12,17 +12,20 @@ type CardData = {
 type GridCardsProps = {
     cols?: number;
     cards: CardData[];
+    onAddCartClick: (id: number) => void;
 }
 
-function GridCards({ cols = 4, cards }: GridCardsProps) {
+function GridCards({ cols = 4, cards, onAddCartClick }: GridCardsProps) {
     return (
         <Grid cols={cols}>
             {cards.map((card) => (
-                <Card imagem={card.imagem}
+                <Card id={card.id}
+                    imagem={card.imagem}
                     titulo={card.titulo}
                     texto={card.texto}
                     linkUrl={card.linkUrl}
-                    key={card.id} />
+                    key={card.id}
+                    onAddCartClick={onAddCartClick} />
             ))}
         </Grid>
     )

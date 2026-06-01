@@ -1,11 +1,13 @@
 type CardProps = {
+    id: number;
     imagem: string;
     titulo: string;
     texto: string;
     linkUrl: string;
+    onAddCartClick: (id: number) => void;
 }
 
-function Card({ imagem, titulo, texto, linkUrl }: CardProps) {
+function Card({ id, imagem, titulo, texto, linkUrl, onAddCartClick }: CardProps) {
     return (
         <div className="col">
             <div className="card h-100">
@@ -15,7 +17,12 @@ function Card({ imagem, titulo, texto, linkUrl }: CardProps) {
                     <p className="card-text">{texto}</p>
                 </div>
                 <div className="card-footer text-center p-3 bg-light">
-                    <a href={linkUrl} className="btn btn-danger">
+                    <a href={linkUrl} className="btn btn-danger" onClick={(e) => {
+                        e.preventDefault();
+                        if (onAddCartClick) {
+                            onAddCartClick(id);
+                        }
+                    }}>
                         Adicionar ao Carrinho
                     </a>
                 </div>

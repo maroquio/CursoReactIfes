@@ -96,43 +96,88 @@ const links = [
   {
     "href": "/",
     "label": "Início",
-    "active": true
+    "active": window.location.pathname === "/"
   },
   {
     "href": "/sobre",
     "label": "Sobre",
-    "active": false
+    "active": window.location.pathname === "/sobre"
   },
+  {
+    "href": "/carrinho",
+    "label": "Carrinho",
+    "active": window.location.pathname === "/carrinho"
+  }
 ]
 
 type ItemCarrinho = {
-  id: number;  
+  id: number;
+  titulo: string;
   quantidade: number;
 }
 
 function App() {
   const [carrinho, setCarrinho] = useState<ItemCarrinho[]>([]);
+  const [paginaAtual, setPaginaAtual] = useState<string>(() => window.location.pathname || "/");
+
+  function navegar(rota: string) {
+    setPaginaAtual(rota);
+    window.history.pushState(null, "", rota);
+  }
 
   function adicionarAoCarrinho(id: number) {
+    const produto = cards.find(card => card.id === id);
+    if (!produto) return;
+
     const itemExistente = carrinho.find(item => item.id === id);
-    if (itemExistente) {
-      setCarrinho(carrinho.map(item =>
-        item.id === id ? { ...item, quantidade: item.quantidade + 1 } : item
-      ));
-    } else {
-      setCarrinho([...carrinho, { id, quantidade: 1 }]);
-    }
+    const novoCarrinho = itemExistente
+      ? carrinho.map(item =>
+          item.id === id ? { ...item, quantidade: item.quantidade + 1 } : item
+        )
+      : [...carrinho, { id, titulo: produto.titulo, quantidade: 1 }];
+
+    setCarrinho(novoCarrinho);
+  }
+
+  function obterQtdeItensCarrinho() {
+    return carrinho.reduce((total, item) => total + item.quantidade, 0);
   }
 
   return (
     <>
-      <Navbar items={links} title="Loja Virtual" cartLength={carrinho.length}/>
+      <Navbar
+        items={links}
+        title="Loja Virtual"
+        cartLength={obterQtdeItensCarrinho()}
+        currentPage={paginaAtual}
+        onNavigate={navegar}
+      />
       <Container>
-        <h1>Olá, React!</h1>
-        <hr />
-        <BoasVindas nome="Ricardo" />
-        <hr />
-        <GridCards cols={4} cards={cards} />
+        {paginaAtual === "/carrinho" && (
+          <div>
+            <h2>Carrinho de Compras</h2>
+            {carrinho.length === 0 ? (
+              <p>O carrinho está vazio.</p>
+            ) : (
+              <ul>
+                {carrinho.map(item => (
+                  <li key={item.titulo}>
+                    {item.titulo} - Quantidade: {item.quantidade}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        )}
+        {paginaAtual === "/" && (
+          <div>
+            <h1>Olá, React!</h1>
+            <hr />
+            <BoasVindas nome="Ricardo" />
+            <hr />
+            <GridCards cols={4} cards={cards} onAddCartClick={adicionarAoCarrinho} />
+          </div>
+        )}
       </Container>
       <BsFooter />
     </>

@@ -8,14 +8,16 @@ type NavbarProps = {
     title: string;
     logoUrl?: string;
     items?: NavItemData[];
-    cartLength?: number;
+    cartLength: number;
+    currentPage: string;
+    onNavigate: (href: string) => void;
 }
 
-function Navbar({ title, logoUrl, items, cartLength }: NavbarProps) {
+function Navbar({ title, logoUrl, items, cartLength, currentPage, onNavigate }: NavbarProps) {
     return (
         <nav className="navbar navbar-dark navbar-expand-lg bg-dark mb-3">
             <div className="container">
-                <a className="navbar-brand" href="/">
+                <a className="navbar-brand" href="/" onClick={(e) => { e.preventDefault(); onNavigate("/"); }}>
                     {logoUrl && (<img src={logoUrl} alt="Logo" width="30" height="24" className="d-inline-block align-text-top" />)}
                     {title}
                 </a>
@@ -26,15 +28,16 @@ function Navbar({ title, logoUrl, items, cartLength }: NavbarProps) {
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         {items && items.map(item =>
                             <li className="nav-item" key={item.href}>
-                                <a className={`nav-link ${item.active ? "active" : ""}`}
-                                    href={item.href}>
+                                <a className={`nav-link ${currentPage === item.href ? "active" : ""}`}
+                                    href={item.href}
+                                    onClick={(e) => { e.preventDefault(); onNavigate(item.href); }}>
                                     {item.label}
                                 </a>
                             </li>
                         )}
                     </ul>
                     <div className="d-flex">
-                        <a href="/carrinho" className="btn btn-outline-light">
+                        <a href="/carrinho" className="btn btn-outline-light" onClick={(e) => { e.preventDefault(); onNavigate("/carrinho"); }}>
                             Carrinho ({cartLength || 0})
                         </a>
                     </div>
