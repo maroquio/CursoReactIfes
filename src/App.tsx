@@ -1,11 +1,30 @@
 import { useState } from "react";
-import BoasVindas from "./BoasVindas";
 import BsFooter from "./BsFooter";
 import Container from "./Container";
-import GridCards from "./GridCards";
 import Navbar from "./Navbar";
+import PageHome from "./PageHome";
+import PageCart from "./PageCart";
+import type { ItemCarrinho, Produto } from "./types";
 
-const cards = [
+const links = [
+  {
+    "href": "/",
+    "label": "Início",
+    "active": window.location.pathname === "/"
+  },
+  {
+    "href": "/sobre",
+    "label": "Sobre",
+    "active": window.location.pathname === "/sobre"
+  },
+  {
+    "href": "/carrinho",
+    "label": "Carrinho",
+    "active": window.location.pathname === "/carrinho"
+  }
+]
+
+const produtos: Produto[] = [
   {
     "id": 1,
     "imagem": "https://picsum.photos/seed/python/400/250",
@@ -92,48 +111,19 @@ const cards = [
   }
 ];
 
-const links = [
-  {
-    "href": "/",
-    "label": "Início",
-    "active": window.location.pathname === "/"
-  },
-  {
-    "href": "/sobre",
-    "label": "Sobre",
-    "active": window.location.pathname === "/sobre"
-  },
-  {
-    "href": "/carrinho",
-    "label": "Carrinho",
-    "active": window.location.pathname === "/carrinho"
-  }
-]
-
-type ItemCarrinho = {
-  id: number;
-  titulo: string;
-  quantidade: number;
-}
-
 function App() {
-  const [carrinho, setCarrinho] = useState<ItemCarrinho[]>([]);
   const [paginaAtual, setPaginaAtual] = useState<string>(() => window.location.pathname || "/");
-
-  function navegar(rota: string) {
-    setPaginaAtual(rota);
-    window.history.pushState(null, "", rota);
-  }
+  const [carrinho, setCarrinho] = useState<ItemCarrinho[]>([]);
 
   function adicionarAoCarrinho(id: number) {
-    const produto = cards.find(card => card.id === id);
+    const produto = produtos.find(card => card.id === id);
     if (!produto) return;
 
     const itemExistente = carrinho.find(item => item.id === id);
     const novoCarrinho = itemExistente
       ? carrinho.map(item =>
-          item.id === id ? { ...item, quantidade: item.quantidade + 1 } : item
-        )
+        item.id === id ? { ...item, quantidade: item.quantidade + 1 } : item
+      )
       : [...carrinho, { id, titulo: produto.titulo, quantidade: 1 }];
 
     setCarrinho(novoCarrinho);
@@ -141,6 +131,11 @@ function App() {
 
   function obterQtdeItensCarrinho() {
     return carrinho.reduce((total, item) => total + item.quantidade, 0);
+  }
+
+  function navegar(rota: string) {
+    setPaginaAtual(rota);
+    window.history.pushState(null, "", rota);
   }
 
   return (
@@ -153,33 +148,8 @@ function App() {
         onNavigate={navegar}
       />
       <Container>
-        {/* Página Home */}
-        {paginaAtual === "/" && (
-          <div>
-            <h1>Olá, React!</h1>
-            <hr />
-            <BoasVindas nome="Ricardo" />
-            <hr />
-            <GridCards cols={4} cards={cards} onAddCartClick={adicionarAoCarrinho} />
-          </div>
-        )}
-        {/* Página Carrinho */}
-        {paginaAtual === "/carrinho" && (
-          <div>
-            <h2>Carrinho de Compras</h2>
-            {carrinho.length === 0 ? (
-              <p>O carrinho está vazio.</p>
-            ) : (
-              <ul>
-                {carrinho.map(item => (
-                  <li key={item.id}>
-                    {item.titulo} - Quantidade: {item.quantidade}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-        )}
+        {paginaAtual === "/" && <PageHome produtos={produtos} adicionarAoCarrinho={adicionarAoCarrinho} /> }
+        {paginaAtual === "/carrinho" && <PageCart carrinho={carrinho} /> }
       </Container>
       <BsFooter />
     </>
