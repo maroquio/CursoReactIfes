@@ -153,6 +153,17 @@ function App() {
         onNavigate={navegar}
       />
       <Container>
+        {/* Página Home */}
+        {paginaAtual === "/" && (
+          <div>
+            <h1>Olá, React!</h1>
+            <hr />
+            <BoasVindas nome="Ricardo" />
+            <hr />
+            <GridCards cols={4} cards={cards} onAddCartClick={adicionarAoCarrinho} />
+          </div>
+        )}
+        {/* Página Carrinho */}
         {paginaAtual === "/carrinho" && (
           <div>
             <h2>Carrinho de Compras</h2>
@@ -161,21 +172,12 @@ function App() {
             ) : (
               <ul>
                 {carrinho.map(item => (
-                  <li key={item.titulo}>
+                  <li key={item.id}>
                     {item.titulo} - Quantidade: {item.quantidade}
                   </li>
                 ))}
               </ul>
             )}
-          </div>
-        )}
-        {paginaAtual === "/" && (
-          <div>
-            <h1>Olá, React!</h1>
-            <hr />
-            <BoasVindas nome="Ricardo" />
-            <hr />
-            <GridCards cols={4} cards={cards} onAddCartClick={adicionarAoCarrinho} />
           </div>
         )}
       </Container>
