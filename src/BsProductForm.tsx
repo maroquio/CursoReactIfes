@@ -38,7 +38,7 @@ function BsProductForm({ onSubmit }: BsProductFormProps) {
         }));
     };
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         const { name, description, imageUrl, price, category } = formData;
         if (onSubmit) {
