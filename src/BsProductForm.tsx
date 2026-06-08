@@ -22,7 +22,7 @@ const CATEGORIES = [
     'Automotivo',
 ] as const;
 
-function BsProductForm() {
+function BsProductForm({ onSubmit }: BsProductFormProps) {
     const [formData, setFormData] = React.useState({
         name: '',
         description: '',
@@ -31,20 +31,16 @@ function BsProductForm() {
         category: CATEGORIES[0],
     });
 
-    const handleChange = (field: keyof typeof formData) => (
-        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-    ) => {
+    const handleChange = (field: keyof typeof formData) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         setFormData(prev => ({
             ...prev,
             [field]: e.target.value,
         }));
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        // Extract fields from formData
         const { name, description, imageUrl, price, category } = formData;
-        // Call parent handler
         if (onSubmit) {
             onSubmit({
                 name,
@@ -57,14 +53,13 @@ function BsProductForm() {
     };
 
     return (
-        <form onSubmit={handleSubmit} className=" needs-validation" novalidate>
+        <form onSubmit={handleSubmit} className="needs-validation" noValidate>
             {/* Name */}
             <div className="form-floating mb-3">
                 <BsInput
                     type="text"
                     id="productName"
                     label="Nome do Produto"
-                    className="mb-3"
                     value={formData.name}
                     onChange={handleChange('name')}
                 />
