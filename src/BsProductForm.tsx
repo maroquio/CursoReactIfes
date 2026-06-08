@@ -60,8 +60,7 @@ function BsProductForm({ onSubmit }: BsProductFormProps) {
                     type="text"
                     id="productName"
                     label="Nome do Produto"
-                    value={formData.name}
-                    onChange={handleChange('name')}
+                                        onChange={handleChange('name')}
                 />
             </div>
 
@@ -83,7 +82,6 @@ function BsProductForm({ onSubmit }: BsProductFormProps) {
                     type="url"
                     id="productImageUrl"
                     label="URL da Imagem"
-                    placeholder="https://exemplo.com/imagem.jpg"
                     value={formData.imageUrl}
                     onChange={handleChange('imageUrl')}
                 />
@@ -95,7 +93,6 @@ function BsProductForm({ onSubmit }: BsProductFormProps) {
                     type="number"
                     id="productPrice"
                     label="Preço"
-                    placeholder="0.00"
                     value={formData.price}
                     onChange={handleChange('price')}
                 />
