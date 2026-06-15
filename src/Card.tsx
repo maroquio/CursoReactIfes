@@ -1,10 +1,10 @@
 type CardProps = {
-    id: number;
+    id: string;
     imagem?: string;
     titulo: string;
     texto: string;
     preco: number;
-    onAddCartClick: (id: number) => void;
+    onAddCartClick: (id: string) => void;
 }
 
 function Card({ id, imagem, titulo, texto, preco, onAddCartClick }: CardProps) {

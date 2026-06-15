@@ -2,7 +2,7 @@ import BoasVindas from "./BoasVindas";
 import GridCards from "./GridCards";
 
 type PageHomeProps = {
-    adicionarAoCarrinho: (id: number) => void;
+    adicionarAoCarrinho: (id: string) => void | Promise<void>;
 }
 
 function PageHome({ adicionarAoCarrinho }: PageHomeProps) {

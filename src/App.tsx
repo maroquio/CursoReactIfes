@@ -4,7 +4,7 @@ import Container from "./Container";
 import Navbar from "./Navbar";
 import PageHome from "./PageHome";
 import PageCart from "./PageCart";
-import type { ItemCarrinho } from "./types";
+import type { ItemCarrinho, Product } from "./types";
 
 const links = [
   {
@@ -115,18 +115,45 @@ function App() {
   const [paginaAtual, setPaginaAtual] = useState<string>(() => window.location.pathname || "/");
   const [carrinho, setCarrinho] = useState<ItemCarrinho[]>([]);
 
-  function adicionarAoCarrinho(id: number) {
-    // const produto = produtos.find(card => card.id === id);
-    // if (!produto) return;
+  async function adicionarAoCarrinho(id: string) {
+    try {
+      const response = await fetch(
+        `https://6a3032f0a7f8866418d5bf0b.mockapi.io/products/${id}`
+      );
 
-    // const itemExistente = carrinho.find(item => item.id === id);
-    // const novoCarrinho = itemExistente
-    //   ? carrinho.map(item =>
-    //     item.id === id ? { ...item, quantidade: item.quantidade + 1 } : item
-    //   )
-    //   : [...carrinho, { id, titulo: produto.titulo, quantidade: 1 }];
+      if (!response.ok) {
+        throw new Error("Produto não encontrado");
+      }
 
-    // setCarrinho(novoCarrinho);
+      const produto: Product = await response.json();
+
+      setCarrinho((carrinhoAtual) => {
+        const itemExistente = carrinhoAtual.find((item) => item.id === produto.id);
+
+        if (itemExistente) {
+          return carrinhoAtual.map((item) =>
+            item.id === produto.id
+              ? { ...item, quantidade: item.quantidade + 1 }
+              : item
+          );
+        }
+
+        return [
+          ...carrinhoAtual,
+          {
+            id: produto.id,
+            titulo: produto.name,
+            quantidade: 1,
+          },
+        ];
+      });
+    } catch (error) {
+      if (error instanceof Error) {
+        console.error(error.message);
+      } else {
+        console.error("Erro desconhecido ao adicionar produto ao carrinho");
+      }
+    }
   }
 
   function obterQtdeItensCarrinho() {
@@ -148,8 +175,8 @@ function App() {
         onNavigate={navegar}
       />
       <Container>
-        {paginaAtual === "/" && <PageHome adicionarAoCarrinho={adicionarAoCarrinho} /> }
-        {paginaAtual === "/carrinho" && <PageCart carrinho={carrinho} /> }
+        {paginaAtual === "/" && <PageHome adicionarAoCarrinho={adicionarAoCarrinho} />}
+        {paginaAtual === "/carrinho" && <PageCart carrinho={carrinho} />}
       </Container>
       <BsFooter />
     </>

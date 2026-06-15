@@ -1,13 +1,13 @@
 export type ItemCarrinho = {
-  id: number;
-  titulo: string;
-  quantidade: number;
+    id: string;
+    titulo: string;
+    quantidade: number;
 }
 
-export type Produto = {
-  id: number;
-  imagem: string;
-  titulo: string;
-  texto: string;
-  linkUrl: string;
+export type Product = {
+    id: string;
+    name: string;
+    description: string;
+    price: number;
+    photo?: string;
 }

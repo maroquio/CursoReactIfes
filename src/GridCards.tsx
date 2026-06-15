@@ -1,18 +1,11 @@
 import { useEffect, useState } from "react";
 import Card from "./Card";
 import Grid from "./Grid";
-
-type Product = {
-    id: number;
-    name: string;
-    description: string;
-    price: number;
-    photo?: string;
-}
+import type { Product } from "./types"
 
 type GridCardsProps = {
     cols?: number;
-    onAddCartClick: (id: number) => void;
+    onAddCartClick: (id: string) => void;
 }
 
 function GridCards({ cols = 4, onAddCartClick }: GridCardsProps) {
