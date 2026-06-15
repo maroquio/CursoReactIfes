@@ -1,30 +1,66 @@
+import { useEffect, useState } from "react";
 import Card from "./Card";
 import Grid from "./Grid";
 
-type CardData = {
+type Product = {
     id: number;
-    imagem: string;
-    titulo: string;
-    texto: string;
-    linkUrl: string;
+    name: string;
+    description: string;
+    price: number;
+    photo?: string;
 }
 
 type GridCardsProps = {
     cols?: number;
-    cards: CardData[];
     onAddCartClick: (id: number) => void;
 }
 
-function GridCards({ cols = 4, cards, onAddCartClick }: GridCardsProps) {
+function GridCards({ cols = 4, onAddCartClick }: GridCardsProps) {
+    const [products, setProducts] = useState<Product[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
+
+    useEffect(() => {
+        async function loadProducts() {
+            try {
+                const response = await fetch(
+                    "https://6a3032f0a7f8866418d5bf0b.mockapi.io/products"
+                );
+                if (!response.ok) {
+                    throw new Error("Error loading produts.");
+                }
+                const jsonData: Product[] = await response.json();
+                setProducts(jsonData);
+            } catch (error) {
+                if (error instanceof Error) {
+                    setError(error.message)
+                } else {
+                    setError("Generic error...")
+                }
+            } finally {
+                setLoading(false);
+            }
+        }
+        loadProducts();
+    }, []);
+
+    if (loading) {
+        return <p>Carregando produtos...</p>
+    }
+
+    if (error) {
+        return <p>Ocorreu um erro: {error}</p>
+    }
+    
     return (
         <Grid cols={cols}>
-            {cards.map((card) => (
-                <Card id={card.id}
-                    imagem={card.imagem}
-                    titulo={card.titulo}
-                    texto={card.texto}
-                    linkUrl={card.linkUrl}
-                    key={card.id}
+            {products.map((p) => (
+                <Card id={p.id}
+                    imagem={p.photo}
+                    titulo={p.name}
+                    texto={p.description}
+                    preco={p.price}
+                    key={p.id}
                     onAddCartClick={onAddCartClick} />
             ))}
         </Grid>

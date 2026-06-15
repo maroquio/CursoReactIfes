@@ -1,20 +1,18 @@
 import BoasVindas from "./BoasVindas";
 import GridCards from "./GridCards";
-import type { Produto } from "./types";
 
 type PageHomeProps = {
-    produtos: Produto[];
     adicionarAoCarrinho: (id: number) => void;
 }
 
-function PageHome({ produtos, adicionarAoCarrinho }: PageHomeProps) {
+function PageHome({ adicionarAoCarrinho }: PageHomeProps) {
     return (
         <div>
             <h1>Olá, React!</h1>
             <hr />
             <BoasVindas nome="Ricardo" />
             <hr />
-            <GridCards cols={4} cards={produtos} onAddCartClick={adicionarAoCarrinho} />
+            <GridCards cols={4} onAddCartClick={adicionarAoCarrinho} />
         </div>
     );
 }
