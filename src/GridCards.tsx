@@ -6,9 +6,10 @@ import type { Product } from "./types"
 type GridCardsProps = {
     cols?: number;
     onAddCartClick: (id: string) => void;
+    onVerDetalhes: (id: string) => void;
 }
 
-function GridCards({ cols = 4, onAddCartClick }: GridCardsProps) {
+function GridCards({ cols = 4, onAddCartClick, onVerDetalhes }: GridCardsProps) {
     const [products, setProducts] = useState<Product[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -54,7 +55,8 @@ function GridCards({ cols = 4, onAddCartClick }: GridCardsProps) {
                     texto={p.description}
                     preco={p.price}
                     key={p.id}
-                    onAddCartClick={onAddCartClick} />
+                    onAddCartClick={onAddCartClick}
+                    onVerDetalhes={onVerDetalhes} />
             ))}
         </Grid>
     )

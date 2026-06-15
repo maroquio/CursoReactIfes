@@ -5,14 +5,20 @@ type CardProps = {
     texto: string;
     preco: number;
     onAddCartClick: (id: string) => void;
+    onVerDetalhes: (id: string) => void;
 }
 
-function Card({ id, imagem, titulo, texto, preco, onAddCartClick }: CardProps) {
+function Card({ id, imagem, titulo, texto, preco, onAddCartClick, onVerDetalhes }: CardProps) {
     const linkUrl = "https://6a3032f0a7f8866418d5bf0b.mockapi.io/products/" + id;
     return (
         <div className="col">
             <div className="card h-100">
-                <img src={imagem} className="card-img-top" />
+                <img
+                    src={imagem}
+                    className="card-img-top"
+                    style={{ cursor: "pointer" }}
+                    onClick={() => onVerDetalhes(id)}
+                />
                 <div className="card-body text-center">
                     <h5 className="card-title">{titulo}</h5>
                     <p className="card-text">{texto}</p>

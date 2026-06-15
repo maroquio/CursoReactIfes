@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BsFooter from "./BsFooter";
 import Container from "./Container";
 import Navbar from "./Navbar";
 import PageHome from "./PageHome";
 import PageCart from "./PageCart";
+import PageProductDetails from "./PageProductDetails";
 import type { ItemCarrinho, Product } from "./types";
 
 const links = [
@@ -165,6 +166,19 @@ function App() {
     window.history.pushState(null, "", rota);
   }
 
+  useEffect(() => {
+    function aoVoltar() {
+      setPaginaAtual(window.location.pathname || "/");
+    }
+
+    window.addEventListener("popstate", aoVoltar);
+    return () => window.removeEventListener("popstate", aoVoltar);
+  }, []);
+
+  const idProduto = paginaAtual.startsWith("/produto/")
+    ? paginaAtual.slice("/produto/".length)
+    : null;
+
   return (
     <>
       <Navbar
@@ -175,8 +189,20 @@ function App() {
         onNavigate={navegar}
       />
       <Container>
-        {paginaAtual === "/" && <PageHome adicionarAoCarrinho={adicionarAoCarrinho} />}
+        {paginaAtual === "/" && (
+          <PageHome
+            adicionarAoCarrinho={adicionarAoCarrinho}
+            onVerDetalhes={(id) => navegar("/produto/" + id)}
+          />
+        )}
         {paginaAtual === "/carrinho" && <PageCart carrinho={carrinho} />}
+        {idProduto && (
+          <PageProductDetails
+            id={idProduto}
+            adicionarAoCarrinho={adicionarAoCarrinho}
+            onVoltar={() => navegar("/")}
+          />
+        )}
       </Container>
       <BsFooter />
     </>
