@@ -1,0 +1,254 @@
+[
+  {
+    "id": "66a1f2c9b8e4d7123a000001",
+    "name": "Mochila Executiva Antifurto",
+    "photo": "https://picsum.photos/seed/produto001/480/480",
+    "description": "Mochila resistente com compartimento para notebook, bolso oculto e acabamento moderno para uso diário.",
+    "price": "189.90"
+  },
+  {
+    "id": "66a1f2c9b8e4d7123a000002",
+    "name": "Fone Bluetooth Sem Fio",
+    "photo": "https://picsum.photos/seed/produto002/480/480",
+    "description": "Fone compacto com conexão Bluetooth, estojo carregador e boa autonomia para música e chamadas.",
+    "price": "129.90"
+  },
+  {
+    "id": "66a1f2c9b8e4d7123a000003",
+    "name": "Garrafa Térmica Inox 750ml",
+    "photo": "https://picsum.photos/seed/produto003/480/480",
+    "description": "Garrafa térmica de aço inoxidável ideal para manter bebidas frias ou quentes por várias horas.",
+    "price": "79.90"
+  },
+  {
+    "id": "66a1f2c9b8e4d7123a000004",
+    "name": "Cadeira Gamer Reclinável",
+    "photo": "https://picsum.photos/seed/produto004/480/480",
+    "description": "Cadeira confortável com ajuste de altura, apoio para braços e encosto reclinável para longas sessões de uso.",
+    "price": "899.90"
+  },
+  {
+    "id": "66a1f2c9b8e4d7123a000005",
+    "name": "Teclado Mecânico RGB",
+    "photo": "https://picsum.photos/seed/produto005/480/480",
+    "description": "Teclado mecânico com iluminação RGB, teclas responsivas e estrutura reforçada para jogos e produtividade.",
+    "price": "249.90"
+  },
+  {
+    "id": "66a1f2c9b8e4d7123a000006",
+    "name": "Mouse Óptico Gamer",
+    "photo": "https://picsum.photos/seed/produto006/480/480",
+    "description": "Mouse ergonômico com sensor preciso, botões laterais e ajuste de sensibilidade para diferentes estilos de uso.",
+    "price": "99.90"
+  },
+  {
+    "id": "66a1f2c9b8e4d7123a000007",
+    "name": "Luminária de Mesa LED",
+    "photo": "https://picsum.photos/seed/produto007/480/480",
+    "description": "Luminária moderna com iluminação LED, ajuste de intensidade e design compacto para estudo ou trabalho.",
+    "price": "69.90"
+  },
+  {
+    "id": "66a1f2c9b8e4d7123a000008",
+    "name": "Caixa de Som Portátil",
+    "photo": "https://picsum.photos/seed/produto008/480/480",
+    "description": "Caixa de som Bluetooth com bateria recarregável, som potente e design portátil para levar a qualquer lugar.",
+    "price": "159.90"
+  },
+  {
+    "id": "66a1f2c9b8e4d7123a000009",
+    "name": "Relógio Smart Fitness",
+    "photo": "https://picsum.photos/seed/produto009/480/480",
+    "description": "Relógio inteligente com monitoramento de atividades, batimentos cardíacos, notificações e modos esportivos.",
+    "price": "229.90"
+  },
+  {
+    "id": "66a1f2c9b8e4d7123a00000a",
+    "name": "Carregador Turbo USB-C",
+    "photo": "https://picsum.photos/seed/produto010/480/480",
+    "description": "Carregador compacto com tecnologia de carregamento rápido e entrada USB-C para celulares e tablets.",
+    "price": "59.90"
+  },
+  {
+    "id": "66a1f2c9b8e4d7123a00000b",
+    "name": "Cabo USB-C Reforçado",
+    "photo": "https://picsum.photos/seed/produto011/480/480",
+    "description": "Cabo resistente com revestimento reforçado, ideal para carregamento rápido e transferência de dados.",
+    "price": "34.90"
+  },
+  {
+    "id": "66a1f2c9b8e4d7123a00000c",
+    "name": "Suporte Articulado para Monitor",
+    "photo": "https://picsum.photos/seed/produto012/480/480",
+    "description": "Suporte ajustável para monitor, ideal para melhorar a postura e organizar melhor a mesa de trabalho.",
+    "price": "199.90"
+  },
+  {
+    "id": "66a1f2c9b8e4d7123a00000d",
+    "name": "Organizador de Cabos",
+    "photo": "https://picsum.photos/seed/produto013/480/480",
+    "description": "Kit prático para organizar cabos em mesas, escritórios e racks, deixando o ambiente mais limpo e funcional.",
+    "price": "24.90"
+  },
+  {
+    "id": "66a1f2c9b8e4d7123a00000e",
+    "name": "Webcam Full HD",
+    "photo": "https://picsum.photos/seed/produto014/480/480",
+    "description": "Webcam com resolução Full HD, microfone integrado e fácil instalação para reuniões, aulas e transmissões.",
+    "price": "179.90"
+  },
+  {
+    "id": "66a1f2c9b8e4d7123a00000f",
+    "name": "Microfone Condensador USB",
+    "photo": "https://picsum.photos/seed/produto015/480/480",
+    "description": "Microfone USB com boa captação de voz, indicado para gravações, aulas online, podcasts e chamadas.",
+    "price": "219.90"
+  },
+  {
+    "id": "66a1f2c9b8e4d7123a000010",
+    "name": "Hub USB 4 Portas",
+    "photo": "https://picsum.photos/seed/produto016/480/480",
+    "description": "Hub compacto com quatro portas USB para conectar periféricos, pendrives, teclados, mouses e acessórios.",
+    "price": "49.90"
+  },
+  {
+    "id": "66a1f2c9b8e4d7123a000011",
+    "name": "Power Bank 20000mAh",
+    "photo": "https://picsum.photos/seed/produto017/480/480",
+    "description": "Bateria portátil de alta capacidade para carregar celulares, fones e outros dispositivos durante o dia.",
+    "price": "149.90"
+  },
+  {
+    "id": "66a1f2c9b8e4d7123a000012",
+    "name": "Tripé Flexível para Celular",
+    "photo": "https://picsum.photos/seed/produto018/480/480",
+    "description": "Tripé leve e flexível para gravações, chamadas de vídeo e fotos com celular em diferentes superfícies.",
+    "price": "39.90"
+  },
+  {
+    "id": "66a1f2c9b8e4d7123a000013",
+    "name": "Ring Light com Suporte",
+    "photo": "https://picsum.photos/seed/produto019/480/480",
+    "description": "Iluminador circular com suporte para celular, ideal para vídeos, aulas, fotos e transmissões ao vivo.",
+    "price": "119.90"
+  },
+  {
+    "id": "66a1f2c9b8e4d7123a000014",
+    "name": "Mesa Digitalizadora Compacta",
+    "photo": "https://picsum.photos/seed/produto020/480/480",
+    "description": "Mesa digitalizadora para desenho, assinatura digital, anotações e uso em softwares criativos.",
+    "price": "299.90"
+  },
+  {
+    "id": "66a1f2c9b8e4d7123a000015",
+    "name": "SSD Externo 1TB",
+    "photo": "https://picsum.photos/seed/produto021/480/480",
+    "description": "Unidade SSD externa com alta velocidade de leitura e gravação para backup, arquivos e projetos.",
+    "price": "529.90"
+  },
+  {
+    "id": "66a1f2c9b8e4d7123a000016",
+    "name": "Pen Drive 128GB",
+    "photo": "https://picsum.photos/seed/produto022/480/480",
+    "description": "Pen drive compacto com 128GB de armazenamento para documentos, fotos, vídeos e arquivos diversos.",
+    "price": "54.90"
+  },
+  {
+    "id": "66a1f2c9b8e4d7123a000017",
+    "name": "Roteador Wi-Fi Dual Band",
+    "photo": "https://picsum.photos/seed/produto023/480/480",
+    "description": "Roteador com conexão dual band, boa cobertura e configuração simples para casas e pequenos escritórios.",
+    "price": "239.90"
+  },
+  {
+    "id": "66a1f2c9b8e4d7123a000018",
+    "name": "Controle Sem Fio para Jogos",
+    "photo": "https://picsum.photos/seed/produto024/480/480",
+    "description": "Controle sem fio confortável, com boa resposta nos botões e compatibilidade com diferentes plataformas.",
+    "price": "169.90"
+  },
+  {
+    "id": "66a1f2c9b8e4d7123a000019",
+    "name": "Headset Gamer com Microfone",
+    "photo": "https://picsum.photos/seed/produto025/480/480",
+    "description": "Headset confortável com áudio imersivo, microfone ajustável e almofadas macias para uso prolongado.",
+    "price": "189.90"
+  },
+  {
+    "id": "66a1f2c9b8e4d7123a00001a",
+    "name": "Mousepad Grande Antiderrapante",
+    "photo": "https://picsum.photos/seed/produto026/480/480",
+    "description": "Mousepad amplo com base antiderrapante e superfície macia para teclado e mouse.",
+    "price": "44.90"
+  },
+  {
+    "id": "66a1f2c9b8e4d7123a00001b",
+    "name": "Suporte para Notebook",
+    "photo": "https://picsum.photos/seed/produto027/480/480",
+    "description": "Suporte ajustável para notebook, ideal para melhorar a ergonomia e facilitar a ventilação do aparelho.",
+    "price": "89.90"
+  },
+  {
+    "id": "66a1f2c9b8e4d7123a00001c",
+    "name": "Cafeteira Elétrica Compacta",
+    "photo": "https://picsum.photos/seed/produto028/480/480",
+    "description": "Cafeteira prática para preparar café rapidamente, com jarra de vidro e design compacto para cozinha.",
+    "price": "139.90"
+  },
+  {
+    "id": "66a1f2c9b8e4d7123a00001d",
+    "name": "Liquidificador 3 Velocidades",
+    "photo": "https://picsum.photos/seed/produto029/480/480",
+    "description": "Liquidificador com copo resistente, três velocidades e função pulsar para receitas do dia a dia.",
+    "price": "159.90"
+  },
+  {
+    "id": "66a1f2c9b8e4d7123a00001e",
+    "name": "Sanduicheira Antiaderente",
+    "photo": "https://picsum.photos/seed/produto030/480/480",
+    "description": "Sanduicheira elétrica com chapas antiaderentes, aquecimento rápido e trava de segurança.",
+    "price": "94.90"
+  },
+  {
+    "id": "66a1f2c9b8e4d7123a00001f",
+    "name": "Aspirador Portátil Recarregável",
+    "photo": "https://picsum.photos/seed/produto031/480/480",
+    "description": "Aspirador pequeno e recarregável para limpeza rápida de carros, sofás, mesas e cantos difíceis.",
+    "price": "199.90"
+  },
+  {
+    "id": "66a1f2c9b8e4d7123a000020",
+    "name": "Kit Ferramentas Doméstico",
+    "photo": "https://picsum.photos/seed/produto032/480/480",
+    "description": "Kit com ferramentas básicas para pequenos reparos em casa, incluindo chaves, alicate e trena.",
+    "price": "129.90"
+  },
+  {
+    "id": "66a1f2c9b8e4d7123a000021",
+    "name": "Caixa Organizadora Plástica",
+    "photo": "https://picsum.photos/seed/produto033/480/480",
+    "description": "Caixa organizadora resistente com tampa, ideal para guardar documentos, brinquedos, roupas e acessórios.",
+    "price": "39.90"
+  },
+  {
+    "id": "66a1f2c9b8e4d7123a000022",
+    "name": "Tapete Antiderrapante",
+    "photo": "https://picsum.photos/seed/produto034/480/480",
+    "description": "Tapete confortável com base antiderrapante, indicado para banheiro, cozinha ou entrada de casa.",
+    "price": "49.90"
+  },
+  {
+    "id": "66a1f2c9b8e4d7123a000023",
+    "name": "Caderno Inteligente Reutilizável",
+    "photo": "https://picsum.photos/seed/produto035/480/480",
+    "description": "Caderno moderno com folhas reutilizáveis, ideal para estudos, reuniões, planejamento e anotações.",
+    "price": "84.90"
+  },
+  {
+    "id": "66a1f2c9b8e4d7123a000024",
+    "name": "Caneta Stylus Capacitiva",
+    "photo": "https://picsum.photos/seed/produto036/480/480",
+    "description": "Caneta stylus leve e precisa para tablets e celulares, indicada para desenho, escrita e navegação.",
+    "price": "64.90"
+  }
+]
